@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Paradise Nursery Design System - Futuristic Glassmorphism with Nature Theme */
+
+@layer base {
+  :root {
+    /* Core background and surfaces */
+    --background: 160 8% 97%;
+    --foreground: 160 15% 15%;
+    
+    /* Glassmorphic cards and surfaces */
+    --card: 160 20% 98%;
+    --card-foreground: 160 15% 15%;
+    
+    --popover: 160 25% 98%;
+    --popover-foreground: 160 15% 15%;
+    
+    /* Primary - Emerald green theme */
+    --primary: 160 84% 39%;
+    --primary-foreground: 160 8% 97%;
+    --primary-glow: 160 84% 55%;
+    
+    /* Secondary - Softer green tones */
+    --secondary: 160 20% 93%;
+    --secondary-foreground: 160 25% 25%;
+    
+    /* Muted tones */
+    --muted: 160 15% 94%;
+    --muted-foreground: 160 12% 45%;
+    
+    /* Accent - Complementary nature tones */
+    --accent: 140 30% 88%;
+    --accent-foreground: 160 25% 25%;
+    
+    /* Status colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 160 8% 97%;
+    
+    --success: 120 84% 45%;
+    --success-foreground: 160 8% 97%;
+    
+    --warning: 45 93% 47%;
+    --warning-foreground: 160 8% 97%;
+    
+    /* Interactive elements */
+    --border: 160 20% 85%;
+    --input: 160 20% 88%;
+    --ring: 160 84% 39%;
+    
+    /* Glassmorphism effects */
+    --glass-bg: 160 25% 98%;
+    --glass-border: 160 30% 90%;
+    --glass-shadow: 160 25% 25%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(160 84% 39% / 0.9), hsl(140 70% 45% / 0.8));
+    --gradient-card: linear-gradient(145deg, hsl(var(--glass-bg) / 0.8), hsl(var(--glass-bg) / 0.4));
+    --gradient-surface: linear-gradient(to bottom, hsl(var(--background)), hsl(160 12% 94%));
+    
+    /* Shadows */
+    --shadow-glass: 0 8px 32px hsl(var(--glass-shadow) / 0.1);
+    --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.3);
+    --shadow-elevated: 0 20px 40px hsl(var(--glass-shadow) / 0.15);
+    
+    /* Border radius system */
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  
+  .dark {
+    /* Dark mode - Deep forest theme */
+    --background: 160 25% 8%;
+    --foreground: 160 8% 92%;
+    
+    --card: 160 20% 12%;
+    --card-foreground: 160 8% 92%;
+    
+    --popover: 160 20% 10%;
+    --popover-foreground: 160 8% 92%;
+    
+    --primary: 160 84% 55%;
+    --primary-foreground: 160 25% 8%;
+    --primary-glow: 160 84% 70%;
+    
+    --secondary: 160 15% 18%;
+    --secondary-foreground: 160 8% 92%;
+    
+    --muted: 160 12% 15%;
+    --muted-foreground: 160 8% 65%;
+    
+    --accent: 140 20% 20%;
+    --accent-foreground: 160 8% 92%;
+    
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 160 8% 92%;
+    
+    --success: 120 60% 50%;
+    --success-foreground: 160 8% 92%;
+    
+    --warning: 45 85% 55%;
+    --warning-foreground: 160 25% 8%;
+    
+    --border: 160 15% 25%;
+    --input: 160 15% 20%;
+    --ring: 160 84% 55%;
+    
+    /* Dark glassmorphism */
+    --glass-bg: 160 20% 12%;
+    --glass-border: 160 25% 25%;
+    --glass-shadow: 160 35% 5%;
+    
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(160 84% 55% / 0.9), hsl(140 70% 60% / 0.8));
+    --gradient-card: linear-gradient(145deg, hsl(var(--glass-bg) / 0.9), hsl(var(--glass-bg) / 0.5));
+    --gradient-surface: linear-gradient(to bottom, hsl(var(--background)), hsl(160 20% 5%));
+    
+    /* Dark shadows */
+    --shadow-glass: 0 8px 32px hsl(var(--glass-shadow) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    --shadow-elevated: 0 20px 40px hsl(var(--glass-shadow) / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-background to-muted text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism Components */
+  .glass-card {
+    background: var(--gradient-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border) / 0.2);
+    box-shadow: var(--shadow-glass);
+  }
+  
+  .glass-header {
+    background: hsl(var(--glass-bg) / 0.8);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid hsl(var(--glass-border) / 0.1);
+  }
+  
+  /* Hero Buttons */
+  .btn-hero {
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-glow);
+    border: 1px solid hsl(var(--primary-glow) / 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btn-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow), var(--shadow-elevated);
+  }
+  
+  /* Animations */
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(var(--primary-glow) / 0.3);
+    }
+    to {
+      box-shadow: 0 0 30px hsl(var(--primary-glow) / 0.6);
+    }
+  }
+}
